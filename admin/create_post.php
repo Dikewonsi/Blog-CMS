@@ -8,7 +8,7 @@
         exit();
     };
 
-    require 'config.php';
+    require '../config.php';
 
     // Process form submission
     if($_SERVER["REQUEST_METHOD"] === 'POST') {

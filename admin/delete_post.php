@@ -6,7 +6,7 @@
         exit();
     }
 
-    require 'config.php';
+    require '../config.php';
 
     //Check if ID is present
     if (isset($_GET['id']) && is_numeric($_GET['id'])) {

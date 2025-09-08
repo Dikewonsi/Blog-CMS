@@ -6,7 +6,7 @@
         exit();
     };
 
-    require 'config.php';
+    require '../config.php';
 
     //Fetch Posts
     $sql = "SELECT * FROM posts ORDER BY created_at DESC";

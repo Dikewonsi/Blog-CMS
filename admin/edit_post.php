@@ -5,7 +5,7 @@
         exit();
     };
 
-    require 'config.php';
+    require '../config.php';
 
     //Ensure ID is provided in URL
     if (!isset($_GET['id']) || empty($_GET['id'])) {
