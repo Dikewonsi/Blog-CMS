@@ -13,7 +13,7 @@
         <div class="card-body p-4">
             <h3 class="text-center mb-4">🔐 Admin Login</h3>
 
-            <form action="authenticate.php" method="POST">
+            <form action="../authenticate.php" method="POST">
                 <div class="mb-3">
                     <label for="username" class="form-label">Username</label>
                     <input type="text" id="username" name="username" 

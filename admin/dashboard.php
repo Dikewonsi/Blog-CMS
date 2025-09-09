@@ -1,9 +1,7 @@
 <?php
-    session_start();
-    if (!isset($_SESSION["user_id"])) {
-        header("Location: login.php");
-        exit();
-    };
+    // Add admin guard
+    require 'auth_check.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

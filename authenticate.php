@@ -1,6 +1,13 @@
-<?php 
-    error_reporting(E_ALL);
-    ini_set('display_errors', 1);
+<?php
+
+    session_set_cookie_params([
+      'lifetime' => 0, // Session cookie lasts until the browser is closed
+      'path' => '/', // Available within the entire domain
+      'domain' => '', // Set to your domain name
+      'secure' => isset($_SERVER['HTTPS']), // True if using HTTPS
+      'httponly' => true, // JS can't access the cookie
+      'samesite' => 'Strict'
+    ]);
 
     session_start();
     require 'config.php';
@@ -18,9 +25,13 @@
 
          //Verify Password
          if ($user && password_verify($password, $user['password'])) {
+            // Regenerate session ID
+            session_regenerate_id(true);
+
             $_SESSION["user_id"] = $user["id"];
             $_SESSION["username"] = $user["username"];
-            header("Location: dashboard.php");
+            $_SESSION['last_activity'] = time(); //Track session start
+            header("Location: admin/dashboard.php");
             exit();
          } else {
             echo "Invalid Username or Password";

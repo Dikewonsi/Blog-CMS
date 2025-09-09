@@ -1,10 +1,8 @@
 <?php
-     session_start();
-    if (!isset($_SESSION["user_id"])) {
-        header("Location: login.php");
-        exit();
-    };
+    // Add admin guard
+    require 'auth_check.php';
 
+    // Connect to the database
     require '../config.php';
 
     //Ensure ID is provided in URL
