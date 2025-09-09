@@ -32,14 +32,16 @@
             $update = $conn->prepare ("UPDATE posts SET title = ?, content = ? WHERE id = ?");
             $update->bind_param("ssi", $title, $content, $post_id);
             if($update->execute()) {
-                header("Location: posts.php?success=Post updated successfully");
-                exit();
+                $_SESSION['message'] = "Post updated successfully";
             } else {
-                $error = "Error updating post. Try again.";
+                $_SESSION['error'] = "Error updating post. Try again.";
             }
         } else {
-            $error = "Both fields are required.";
+            $_SESSION['error'] = "Both fields are required.";
         }
+
+        header("Location: posts.php");
+        exit();
     }
 ?>
 <!DOCTYPE html>

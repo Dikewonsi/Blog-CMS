@@ -15,11 +15,19 @@
             $stmt = $conn->prepare("INSERT INTO posts (title, content) VALUES (?, ?)");
             $stmt->bind_param("ss", $title, $content);
             $stmt->execute();
-            header("Location: posts.php");
-            exit();
+
+            if($stmt->execute()) {
+                $_SESSION['message'] = "Post created successfully";
+            } else {
+                $_SESSION['error'] = "Error creating post. Try again.";
+            }
+            
         } else {
             $error = "Title and content are required.";
         }
+
+        header("Location: posts.php");
+        exit();
     }
 ?>
 <!DOCTYPE html>
