@@ -2,9 +2,9 @@
 
     //Database Credentials
     $host = "localhost";
-    $user = "root";
-    $pass = "root";
-    $dbname = "blog_cms";
+    $user = "your_username";
+    $pass = "your_password";
+    $dbname = "your_database_name";
 
 
     //Create Connection
