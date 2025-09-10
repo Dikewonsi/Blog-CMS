@@ -14,7 +14,6 @@
         if(!empty($title) && !empty($content)) {
             $stmt = $conn->prepare("INSERT INTO posts (title, content) VALUES (?, ?)");
             $stmt->bind_param("ss", $title, $content);
-            $stmt->execute();
 
             if($stmt->execute()) {
                 $_SESSION['message'] = "Post created successfully";
